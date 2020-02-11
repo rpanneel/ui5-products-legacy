@@ -11,12 +11,21 @@ sap.ui.define([
 
 	ListController.prototype.onInit = function() {
 		BaseController.prototype.onInit.apply(this, arguments);
-		this.getOwnerComponent().getRouter().getRoute("list").attachMatched(this._onMatched, this);
+		//this.getOwnerComponent().getRouter().getRoute("list").attachMatched(this._onMatched, this);
 	};
 
-	ListController.prototype._onMatched = function(event) {
-		const args = event.getParameter("arguments");
-		const path = decodeURIComponent(args.basepath || "") + "/Products";
+	ListController.prototype.onRouteMatched = function(evt) {
+		BaseController.prototype.onRouteMatched.apply(this, arguments);
+		const route = evt.getParameter("name");
+		let path;
+		if (route === "forSupplier") {
+			const supplierId = decodeURIComponent(evt.getParameter("arguments").supplierId);
+			const key = this.getModel().createKey("Suppliers", { Id: supplierId });
+			path = "/" + key + "/Products"
+		} else {
+			path = "/Products"
+		}
+
 		const table = this.getView().byId("table");
 
 		table.bindItems({

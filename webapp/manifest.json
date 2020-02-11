@@ -78,13 +78,18 @@
 			"routes": [
 				{
 					"name": "detail",
-					"pattern": ":parent*:&/detail/{id}",
-					"target": "detail"
+					"pattern": ":parent*:-/detail/{id}",
+					"target": ["detail"]
 				},
+				{
+					"name": "forSupplier",
+					"pattern": ":parent*:-/productsForSupplier/{supplierId}",
+					"target": ["list"]
+				}
 				{
 					"name": "list",
 					"pattern": ":parent*:",
-					"target": "list"
+					"target": ["list"]
 				}
 			],
 			"targets": {
