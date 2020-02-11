@@ -8,12 +8,12 @@ server:
       afterMiddleware: compression
       mountPath: /resources
       configuration:
-        rootPath: "C:\\tools\\sapui5-sdk\\1.60.14\\sapui5\\resources"
+        rootPath: "C:\\repo\\sapui5-sdk\\1.60.21\\resources"
     - name: ui5-middleware-servestatic
       afterMiddleware: compression
       mountPath: /test-resources
       configuration:
-        rootPath: "C:\\tools\\sapui5-sdk\\1.60.14\\sapui5\\test-resources"
+        rootPath: "C:\\repo\\sapui5-sdk\\1.60.21\\test-resources"
     - name: ui5-middleware-livereload
       afterMiddleware: compression
       configuration:
@@ -25,19 +25,5 @@ server:
       afterMiddleware: compression
       mountPath: /sap/opu/odata/sap/
       configuration:
-        baseUri: "https://dev-sapfiori.infrabel.be/sap/opu/odata/sap/"
+        baseUri: "https://vhcalnplci:44300/sap/opu/odata/sap/"
         client: "001"
-builder:
-  customTasks:
-    - name: ui5-task-nwabap-deployer
-      afterTask: generateVersionInfo
-      configuration:
-        resources:
-          path: dist
-          pattern: "**/*.*"
-        ui5:
-          language: EN
-          package: ZRPAN
-          bspContainer: ZUI5_EPM_PROD
-          bspContainerText: EPM Products
-          calculateApplicationIndex: true

@@ -11,7 +11,7 @@
 		},
 		"dataSources": {
 			"mainService": {
-				"uri": "/sap/opu/odata/sap/EPM_REF_APPS_SHOP_SRV",
+				"uri": "/sap/opu/odata/sap/ZEPM_DEMO_SRV",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0"
