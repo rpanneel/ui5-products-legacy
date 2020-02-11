@@ -85,7 +85,7 @@
 					"name": "forSupplier",
 					"pattern": ":parent*:-/productsForSupplier/{supplierId}",
 					"target": ["list"]
-				}
+				},
 				{
 					"name": "list",
 					"pattern": ":parent*:",

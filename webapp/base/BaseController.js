@@ -29,7 +29,13 @@ sap.ui.define([
 		let resultParams = {};
 		params = params || {}; //make sure it's an object
 
-		resultsParams = { ...parentChild, ...params };
+		for (let key in parentChild) {
+			resultParams[key] = parentChild[key];
+		}
+
+		for (let key in params) {
+			resultParams[key] = params[key];
+		}
 
 		this.getRouter().navTo(route, resultParams);
 	};
