@@ -1,6 +1,6 @@
 specVersion: "1.0"
 metadata:
-  name: ui5-products
+  name: ui5-products-legacy
 type: application
 server:
   customMiddleware:
